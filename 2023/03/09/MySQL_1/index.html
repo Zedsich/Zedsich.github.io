@@ -6,7 +6,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark') document.documentEleme
 @font-face {
  font-family: 'JetBrains Mono';
  src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
-}</style><meta name="generator" content="Hexo 5.4.2"></head><body><div class="loading" style="opacity: 0"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>初见MySQL——基础篇</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-03-09T13:36:27.000Z" id="date"> 2023-03-09</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-03-09T14:24:49.762Z" id="updated"> 2023-03-09</time></div></span><br><span>Word Count: <div class="control">7.4k</div></span><br><span>Read Time: <div class="control">28 min</div></span></div></div><hr><div id="post-content"><h1 id="初见MySQL——基础篇"><a href="#初见MySQL——基础篇" class="headerlink" title="初见MySQL——基础篇"></a>初见MySQL——基础篇</h1><p>[TOC]</p>
+}</style><meta name="generator" content="Hexo 5.4.2"></head><body><div class="loading" style="opacity: 0"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>初见MySQL——基础篇</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-03-09T13:36:27.000Z" id="date"> 2023-03-09</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-03-10T07:24:26.592Z" id="updated"> 2023-03-10</time></div></span><br><span>Word Count: <div class="control">7.4k</div></span><br><span>Read Time: <div class="control">28 min</div></span></div></div><hr><div id="post-content"><h1 id="初见MySQL——基础篇"><a href="#初见MySQL——基础篇" class="headerlink" title="初见MySQL——基础篇"></a>初见MySQL——基础篇</h1><p>[TOC]</p>
 <h2 id="1-安装MySQL（zip-archive）"><a href="#1-安装MySQL（zip-archive）" class="headerlink" title="1.安装MySQL（zip archive）"></a>1.安装MySQL（zip archive）</h2><p>windows环境下不推荐用安装包安装，之后清理注册表比较麻烦</p>
 <p>zip archive website:<a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
 <p>解压之后在文件夹里新建一个<strong>my.ini</strong>作为配置文件（新版本不自带这个）</p>
@@ -127,10 +127,10 @@ if (window.localStorage.getItem('theme-mode') === 'dark') document.documentEleme
 </ul>
 <hr>
 <h4 id="2-7-1-数值类型"><a href="#2-7-1-数值类型" class="headerlink" title="2.7.1 数值类型"></a>2.7.1 数值类型</h4><h5 id="整数类型"><a href="#整数类型" class="headerlink" title="整数类型"></a>整数类型</h5><p>MySQL 主要提供的整数类型有 <code>TINYINT</code>、<code>SMALLINT</code>、<code>MEDIUMINT</code>、<code>INT</code>、<code>BIGINT</code>，其属性字段可以添加 <code>AUTO_INCREMENT</code> 自增约束条件。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/BDglOVficCPPXPTcIdrdGia6HZzGEAxHsmLkicjibw5r28s0UYpM4l99bKqsecccmdtCXk9ghdQApXiaqlhrLzh8lag/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="D:\Blog\myblog\source_posts\img_MySQL_1\1.png" alt="1"></p>
 <p>从上表中可以看到，不同类型的整数存储所需的字节数不相同，占用字节数最小的是 <code>TINYINT</code> 类型，占用字节最大的是 <code>BIGINT</code> 类型，占用的字节越多的类型所能表示的数值范围越大。</p>
 <p>根据占用字节数可以求出每一种数据类型的取值范围。例如，<code>TINYINT</code> 需要 1 个字节（8bit）来存储，那么 <code>TINYINT</code> 无符号数的最大值为 28-1，即 255；<code>TINYINT</code> 有符号数的最大值为 27-1，即 127。其他类型的整数的取值范围计算方法相同，如下表所示。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/BDglOVficCPPXPTcIdrdGia6HZzGEAxHsmFxhdrHmYhKYybic1N83uMDqX8kLSib5ZGf06ufN1x2iaHULqC7IxHZhrw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="D:\Blog\myblog\source_posts\img_MySQL_1\2.png" alt="2"></p>
 <p><strong>提示：</strong> 显示宽度和数据类型的取值范围是无关的。显示宽度只是指明 MySQL 最大可能显示的数字个数，数值的位数小于指定的宽度时会由空格填充。如果插入了大于显示宽度的值，只要该值不超过该类型整数的取值范围，数值依然可以插入，而且能够显示出来。例如，year 字段插入 19999，当使用 SELECT 查询该列值的时候，MySQL 显示的将是完整的带有 5 位数字的 19999，而不是 4 位数字的值。</p>
 <p>其他整型数据类型也可以在定义表结构时指定所需的显示宽度，如果不指定，则系统为每一种类型指定默认的宽度值。</p>
 <p>不同的整数类型有不同的取值范围，并且需要不同的存储空间，因此应根据实际需要选择最合适的类型，这样有利于提高查询的效率和节省存储空间。</p>
@@ -139,7 +139,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark') document.documentEleme
 <p>浮点类型和定点类型都可以用<code>(M, D)</code>来表示，其中 <code>M</code> 称为精度，表示总共的位数；<code>D</code> 称为标度，表示小数的位数。</p>
 <p>浮点数类型的取值范围为 M（1～255）和 D（1～30，且不能大于 M-2），分别表示显示宽度和小数位数。M 和 D 在 FLOAT 和DOUBLE 中是可选的，FLOAT 和 DOUBLE 类型将被保存为硬件所支持的最大精度。DECIMAL 的默认 D 值为 0、M 值为 10。</p>
 <p>下表中列出了 MySQL 中的小数类型和存储需求。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/BDglOVficCPPXPTcIdrdGia6HZzGEAxHsmSVicKPRJgibbYnBw2Xtb0OaKUApqicxkN5YJcD2E5JoEAaln5Vty7946A/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="D:\Blog\myblog\source_posts\img_MySQL_1\3.png" alt="3"></p>
 <p><code>DECIMAL</code> 类型不同于 <code>FLOAT</code> 和 <code>DOUBLE</code>。<code>DOUBLE</code> 实际上是以字符串的形式存放的，<code>DECIMAL</code> 可能的最大取值范围与 <code>DOUBLE</code> 相同，但是有效的取值范围由 <code>M</code> 和 <code>D</code> 决定。如果改变 <code>M</code> 而固定 <code>D</code>，则取值范围将随 <code>M</code> 的变大而变大。</p>
 <p>从上表中可以看到，<code>DECIMAL</code> 的存储空间并不是固定的，而由精度值 <code>M</code> 决定，占用 <code>M+2</code> 个字节。</p>
 <p><code>FLOAT</code> 类型的取值范围如下：</p>
@@ -163,7 +163,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark') document.documentEleme
 <hr>
 <h4 id="2-7-2-日期和时间类型"><a href="#2-7-2-日期和时间类型" class="headerlink" title="2.7.2 日期和时间类型"></a>2.7.2 日期和时间类型</h4><p>MySQL 中有多处表示日期的数据类型：<code>YEAR</code>、<code>TIME</code>、<code>DATE</code>、<code>DTAETIME</code>、<code>TIMESTAMP</code>。当只记录年信息的时候，可以只使用 <code>YEAR</code> 类型。</p>
 <p>每一个类型都有合法的取值范围，当指定确定不合法的值时，系统将“零”值插入数据库中。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/BDglOVficCPPXPTcIdrdGia6HZzGEAxHsmDKO50PVgwbPiasAlQndmtzEcE5B86KqKENoiblTTibtFv0LGSt08sYKHQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="D:\Blog\myblog\source_posts\img_MySQL_1\4.png" alt="4"></p>
 <h5 id="YEAR-类型"><a href="#YEAR-类型" class="headerlink" title="YEAR 类型"></a>YEAR 类型</h5><p>YEAR 类型是一个单字节类型，用于表示年，在存储时只需要 1 个字节。可以使用各种格式指定 YEAR，如下所示：</p>
 <ul>
 <li>以 <strong>4 位字符串</strong>或者 <strong>4 位数字</strong>格式表示的 YEAR，范围为 ‘1901’～’2155’。输入格式为 ‘YYYY’ 或者 YYYY，例如，输入 ‘2010’ 或 2010，插入数据库的值均为 2010。</li>
@@ -212,7 +212,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark') document.documentEleme
 <h4 id="2-7-3-字符串类型"><a href="#2-7-3-字符串类型" class="headerlink" title="2.7.3 字符串类型"></a>2.7.3 字符串类型</h4><p>字符串类型用来存储字符串数据，还可以存储图片和声音的二进制数据。字符串可以区分或者不区分大小写的串比较，还可以进行正则表达式的匹配查找。</p>
 <p>MySQL 中的字符串类型有 CHAR、VARCHAR、TINYTEXT、TEXT、MEDIUMTEXT、LONGTEXT、ENUM、SET 等。</p>
 <p>下表中列出了 MySQL 中的字符串数据类型，括号中的 M 表示可以为其指定长度。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/BDglOVficCPPXPTcIdrdGia6HZzGEAxHsm0X2WQbx1IlNtP4YBKb6vvjgxOicib7cOLic43NPtbM5bZjFBFXPdRY0TQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="D:\Blog\myblog\source_posts\img_MySQL_1\5.png" alt="5"></p>
 <p><code>VARCHAR</code> 和 <code>TEXT</code> 类型是变长类型，其存储需求取决于列值的实际长度（在前面的表格中用 <code>L</code> 表示），而不是取决于类型的最大可能尺寸。</p>
 <p>例如，一个 <code>VARCHAR(10)</code> 列能保存一个最大长度为 10 个字符的字符串，实际的存储需要字符串的长度 <code>L</code> 加上一个字节以记录字符串的长度。对于字符 “abcd”，<code>L</code> 是 4，而存储要求 5 个字节。</p>
 <h5 id="CHAR-和-VARCHAR-类型"><a href="#CHAR-和-VARCHAR-类型" class="headerlink" title="CHAR 和 VARCHAR 类型"></a>CHAR 和 VARCHAR 类型</h5><p><strong><code>CHAR(M)</code></strong> 为固定长度字符串，在定义时指定字符串列长。当保存时，在右侧填充空格以达到指定的长度。<code>M</code> 表示列的长度，范围是 0～255 个字符。</p>
@@ -220,7 +220,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark') document.documentEleme
 <p><strong><code>VARCHAR(M)</code></strong> 是长度可变的字符串，<code>M</code> 表示最大列的长度，<code>M</code> 的范围是 <code>0～65535</code>。<code>VARCHAR</code> 的最大实际长度由最长的行的大小和使用的字符集确定，而实际占用的空间为字符串的实际长度加 1。</p>
 <p>例如，<code>VARCHAR(50)</code> 定义了一个最大长度为 50 的字符串，如果插入的字符串只有 10 个字符，则实际存储的字符串为 10 个字符和一个字符串结束字符。<code>VARCHAR</code> 在值保存和检索时尾部的空格仍保留。</p>
 <p><strong>实例：</strong> 下面将不同的字符串保存到 <code>CHAR(4)</code> 和 <code>VARCHAR(4)</code> 列，说明 <code>CHAR</code> 和 <code>VARCHAR</code> 之间的差别，如下表所示。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/BDglOVficCPPXPTcIdrdGia6HZzGEAxHsmBZjfsZnibhkQRNJOea7AuxuxVjGKejX2X78q9TB4Mr6iaQNu25xsIjXA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="D:\Blog\myblog\source_posts\img_MySQL_1\6.png" alt="6"></p>
 <p>对比结果可以看到，<code>CHAR(4)</code> 定义了固定长度为 4 的列，无论存入的数据长度为多少，所占用的空间均为 4 个字节。<code>VARCHAR(4)</code> 定义的列所占的字节数为实际长度加 1。</p>
 <h5 id="TEXT-类型"><a href="#TEXT-类型" class="headerlink" title="TEXT 类型"></a>TEXT 类型</h5><p>TEXT 列保存非二进制字符串，如文章内容、评论等。当保存或查询 TEXT 列的值时，不删除尾部空格。</p>
 <p>TEXT 类型分为 4 种：<code>TINYTEXT</code>、<code>TEXT</code>、<code>MEDIUMTEXT</code> 和 <code>LONGTEXT</code>。不同的 TEXT 类型的存储空间和数据长度不同。</p>
@@ -237,7 +237,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark') document.documentEleme
 <p><code>ENUM</code> 类型的字段在取值时，能在指定的枚举列表中获取，而且一次只能取一个。如果创建的成员中有空格，尾部的空格将自动被删除。</p>
 <p><code>ENUM</code> 值在内部用整数表示，每个枚举值均有一个索引值；列表值所允许的成员值从 1 开始编号，MySQL 存储的就是这个索引编号，枚举最多可以有 65535 个元素。</p>
 <p>例如，定义 ENUM 类型的列（’first’，’second’，’third’），该列可以取的值和每个值的索引如下表所示。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/BDglOVficCPPXPTcIdrdGia6HZzGEAxHsmc7LnPJDJ7EsAbkibIqShGtashEVedQvt0YVsCCvhDYcdLqTRYXv6FrA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="D:\Blog\myblog\source_posts\img_MySQL_1\7.png" alt="7"></p>
 <p>ENUM 值依照列索引顺序排列，并且空字符串排在非空字符串前，NULL 值排在其他所有枚举值前。</p>
 <p><strong>提示：</strong> ENUM 列总有一个默认值。如果将 ENUM 列声明为 <code>NULL</code>，<code>NULL</code> 值则为该列的一个有效值，并且默认值为 <code>NULL</code>。如果 ENUM 列被声明为 <code>NOT NULL</code>，其默认值为允许的值列表的第 1 个元素。</p>
 <h5 id="SET-类型"><a href="#SET-类型" class="headerlink" title="SET 类型"></a>SET 类型</h5><p>SET 是一个字符串的对象，可以有零或多个值，SET 列最多可以有 64 个成员，值为表创建时规定的一列值。指定包括多个 SET 成员的 SET 列值时，各成员之间用逗号,隔开，语法格式如下：</p>
@@ -250,7 +250,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark') document.documentEleme
 <h4 id="2-7-4-二进制类型"><a href="#2-7-4-二进制类型" class="headerlink" title="2.7.4 二进制类型"></a>2.7.4 二进制类型</h4><p>MySQL 支持两类字符型数据：文本字符串和二进制字符串。二进制字符串类型有时候也直接被称为“二进制类型”。</p>
 <p>MySQL 中的二进制字符串有 <code>BIT</code>、<code>BINARY</code>、<code>VARBINARY</code>、<code>TINYBLOB</code>、<code>BLOB</code>、<code>MEDIUMBLOB</code> 和 <code>LONGBLOB</code>。</p>
 <p>下表中列出了 MySQL 中的二进制数据类型，括号中的 <code>M</code> 表示可以为其指定长度。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/BDglOVficCPPXPTcIdrdGia6HZzGEAxHsmDXSckAGUFhwt1YiaZd7fygqHwkia8aATzQy5f83Me3TE6eAMic64t8XmA/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="D:\Blog\myblog\source_posts\img_MySQL_1\8.png" alt="8"></p>
 <h5 id="BIT-类型"><a href="#BIT-类型" class="headerlink" title="BIT 类型"></a>BIT 类型</h5><p>位字段类型。M 表示每个值的位数，范围为 1～64。如果 M 被省略，默认值为 1。如果为 BIT(M) 列分配的值的长度小于 M 位，在值的左边用 0 填充。例如，为 BIT(6) 列分配一个值 b’101’，其效果与分配 b’000101’ 相同。</p>
 <p>BIT 数据类型用来保存位字段值，例如以二进制的形式保存数据 13，13 的二进制形式为 1101，在这里需要位数至少为 4 位的 BIT 类型，即可以定义列类型为 <code>BIT(4)</code>。大于二进制 1111 的数据是不能插入<code>BIT(4)</code> 类型的字段中的。</p>
 <p><strong>提示：</strong> 默认情况下，MySQL 不可以插入超出该列允许范围的值，因而插入数据时要确保插入的值在指定的范围内。</p>
@@ -260,7 +260,7 @@ if (window.localStorage.getItem('theme-mode') === 'dark') document.documentEleme
 <p><strong><code>BINARY</code></strong> 类型的长度是固定的，指定长度后，不足最大长度的，将在它们右边填充 “<code>\0</code>” 补齐，以达到指定长度。例如，指定列数据类型为 <code>BINARY(3)</code>，当插入 <code>a</code> 时，存储的内容实际为 “<code>\a0\0</code>”，当插入 <code>ab</code> 时，实际存储的内容为“<code>ab\0</code>”，无论存储的内容是否达到指定的长度，存储空间均为指定的值 <code>M</code>。</p>
 <p><strong><code>VARBINARY</code></strong> 类型的长度是可变的，指定好长度之后，长度可以在 0 到最大值之间。例如，指定列数据类型为 <code>VARBINARY(20)</code>，如果插入的值长度只有 10，则实际存储空间为 10 加 1，实际占用的空间为字符串的实际长度加 1。</p>
 <h5 id="BLOB-类型"><a href="#BLOB-类型" class="headerlink" title="BLOB 类型"></a>BLOB 类型</h5><p>BLOB 是一个二进制的对象，用来存储可变数量的数据。BLOB 类型分为 4 种：TINYBLOB、BLOB、MEDIUMBLOB 和 LONGBLOB，它们可容纳值的最大长度不同，如下表所示。</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/BDglOVficCPPXPTcIdrdGia6HZzGEAxHsmpP5CUQfE0DFvs6or16OOJbpt94cNCfPHN4MawzJXFWtYiafaYUicNKTQ/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+<p><img src="D:\Blog\myblog\source_posts\img_MySQL_1\9.png" alt="9"></p>
 <ul>
 <li>BLOB 列存储的是二进制字符串（字节字符串），TEXT 列存储的是非进制字符串（字符字符串）。</li>
 <li>BLOB 列是字符集，并且排序和比较基于列值字节的数值；TEXT 列有一个字符集，并且根据字符集对值进行排序和比较。</li>
