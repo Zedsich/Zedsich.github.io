@@ -2729,6 +2729,7 @@ article .recent-excerpt p {
 }
 #post-bg img {
   max-width: 100%;
+  margin: 0 auto;
 }
 #post-title {
   flex-wrap: wrap;
