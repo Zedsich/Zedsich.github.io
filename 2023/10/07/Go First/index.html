@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="en-us" theme-mode="dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Go lang phase 1 | Zedsich's Blog</title><script>var config = {"root":"/","search":{"preload":false,"activeHolder":"Enter here","blurHolder":"Search","noResult":"Data \"$0\" not found"},"code":{"codeInfo":"$0 - $1 lines","copy":"copy","copyFinish":"copied","expand":"expand"}}</script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script src="//unpkg.com/mermaid@9.2.2/dist/mermaid.min.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js"></script><script>MathJax.Hub.Config({
+ menuSettings: {
+   zoom: "None"
+ },
+ showMathMenu: false,
+ jax: ["input/TeX","output/CommonHTML"],
+ extensions: ["tex2jax.js"],
+ TeX: {
+   extensions: ["AMSmath.js","AMSsymbols.js"],
+   equationNumbers: {
+     autoNumber: "AMS"
+   }
+ },
+ tex2jax: {
+   inlineMath: [["\\(", "\\)"]],
+   displayMath: [["\\[", "\\]"]]
+ }
+});</script><link rel="stylesheet" href="/css/arknights.css"><script>if (window.localStorage.getItem('theme-mode') === 'light') document.documentElement.setAttribute('theme-mode', 'light')
+if (window.localStorage.getItem('theme-mode') === 'dark') document.documentElement.setAttribute('theme-mode', 'dark')</script><style>@font-face {
+ font-family: BenderLight;
+ src: local('Bender'), url("/font/BenderLight.ttf");
+}
+@font-face {
+ font-family: 'JetBrains Mono';
+ src: local('JetBrains Mono'), url('/font/JetBrainsMono-Regular.woff2') format('woff2');
+}</style><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head><body><div class="loading" style="opacity: 0"><div class="loadingBar left"></div><div class="loadingBar right"></div></div><main><header class="closed"><nav><div class="navBtn hide"><i class="navBtnIcon"><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span><span class="navBtnIconBar"></span></i></div><div class="navItem" id="search-header"><span class="navItemTitle"><input autocomplete="off" autocorrect="off" autocapitalize="none" placeholder="Search" spellcheck="false" maxlength="50" type="text" id="search-input"></span></div><div class="navItem" id="search-holder"></div><div class="search-popup"><div id="search-result"></div></div><ol class="navContent"><li class="navItem"><a class="navBlock" href="/"><span class="navItemTitle">Home</span></a></li><li class="navItem"><a class="navBlock" href="/about/"><span class="navItemTitle">About</span></a></li><li class="navItem"><a class="navBlock" href="/contact/"><span class="navItemTitle">Contact</span></a></li><li class="navItem" matchdata="categories,tags"><a class="navBlock" href="/archives/"><span class="navItemTitle">Archives</span></a></li></ol></nav></header><article><div id="post-bg"><div id="post-title"><h1>Go lang phase 1</h1><div id="post-info"><span>First Post: <div class="control"><time datetime="2023-10-07T04:58:02.000Z" id="date"> 2023-10-07</time></div></span><br><span>Last Update: <div class="control"><time datetime="2023-10-07T06:13:15.374Z" id="updated"> 2023-10-07</time></div></span><br><span>Word Count: <div class="control">1.2k</div></span><br><span>Read Time: <div class="control">4 min</div></span></div></div><hr><div id="post-content"><h1 id="Go-First"><a href="#Go-First" class="headerlink" title="Go First"></a>Go First</h1><h2 id="Env"><a href="#Env" class="headerlink" title="Env"></a>Env</h2><ul>
+<li>go 1.21.2 <strong>Stable Version</strong></li>
+<li>Goland 2023.2.2</li>
+</ul>
+<h2 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">"fmt"</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>    fmt.Println(<span class="hljs-string">"Hello World"</span>)<br>}<br></code></pre></td></tr></table></figure>
+<p><code>package main</code> ：<code>Go</code>感觉上和<code>Java</code>有点像，都需要声明该源文件属于哪个包，<code>package main</code>代表其是一个可以独立执行的程序，同样和<code>Java</code>一样，<strong>每个<code>Go</code>应用程序都需要有一个<code>main</code>包</strong></p>
+<p><code>import "fmt"</code>：告诉ide这个程序需要用<code>fmt</code>这个包，而<code>fmt</code>中实现了格式化IO函数</p>
+<p><code>func main()</code>：除<code>init()</code>外启动后第一个执行的函数</p>
+<p><code>fmt.Println()</code>：格式化输出，会在字符串后自动增加<code>\n</code></p>
+<p>对于一个标识符，如果其以大写字母开头，则可以被包外引用，类似于<code>public</code>；而如果以小写字母开头，则只能在包内使用，类似于<code>protected</code></p>
+<p>在<code>Go</code>中，<code>{</code> 是不能单独放在一行里的，意味着在上方的<code>helloworld.go</code>中，只能写作<code>func main() {</code>而不能分在两行</p>
+<h2 id="Run-Go"><a href="#Run-Go" class="headerlink" title="Run Go"></a>Run Go</h2><p><code>Go</code>的源文件后缀为<code>.go</code>，在使用<code>cli</code>而非<code>Goland</code>等工具编写时，可以使用<code>run</code>和<code>build</code>指令</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">// Run</span><br>PS &gt; <span class="hljs-keyword">go</span> run .\helloworld.<span class="hljs-keyword">go</span><br>Hello world<br><br><span class="hljs-comment">//Build</span><br>PS &gt; <span class="hljs-keyword">go</span> build .\helloworld.<span class="hljs-keyword">go</span><br>PS &gt; ./helloworld.exe<br>Hello world<br></code></pre></td></tr></table></figure>
+<h2 id="Basic-Syntax"><a href="#Basic-Syntax" class="headerlink" title="Basic Syntax"></a>Basic Syntax</h2><h3 id="Line-separator"><a href="#Line-separator" class="headerlink" title="Line separator"></a>Line separator</h3><p>在<code>Go</code>中，每一行代表着一条语句的结束，而不需要使用<code>;</code>，但如果要在一行内执行多条语句，则需要使用<code>;</code>将他们分隔开</p>
+<h3 id="Exegesis"><a href="#Exegesis" class="headerlink" title="Exegesis"></a>Exegesis</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Go"><span class="hljs-comment">// Single-line exegesis</span><br><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">	Multi-line</span><br><span class="hljs-comment">	exegesis</span><br><span class="hljs-comment">*/</span><br></code></pre></td></tr></table></figure>
+<h3 id="Identifier"><a href="#Identifier" class="headerlink" title="Identifier"></a>Identifier</h3><p>在<code>Go</code>中，标识符的命名和大多数语言一样，可以由大小写字母、数字、下划线共同构成，同样，<strong>必须以字母或下划线开头，而非使用数字</strong></p>
+<h3 id="Strings"><a href="#Strings" class="headerlink" title="Strings"></a>Strings</h3><h4 id="Concatenation"><a href="#Concatenation" class="headerlink" title="Concatenation"></a>Concatenation</h4><p>在<code>Go</code>中，字符串拼接非常简单，只需要使用<code>+</code>即可</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs Go"><span class="hljs-keyword">package</span> main<br><br><span class="hljs-keyword">import</span> <span class="hljs-string">"fmt"</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>	fmt.Println(<span class="hljs-string">"Hello"</span> + <span class="hljs-string">"world"</span>)<br>}<br><br><span class="hljs-comment">// helloworld</span><br></code></pre></td></tr></table></figure>
+<h4 id="Formation"><a href="#Formation" class="headerlink" title="Formation"></a>Formation</h4><p>在<code>Go</code>中，可以使用<code>fmt.Sprintf</code>和<code>fmt.Printf</code>来格式化字符串</p>
+<ul>
+<li><code>func Sprintf(format string, a ...any) string</code>：格式化字符串并赋值给新串</li>
+</ul>
+<p>根据格式化参数生成格式化的字符串并返回该字符串，<strong>格式化样式</strong>中，格式化符号以<code>%</code>开头，<code>%s</code>为字符串，<code>%d</code>为十进制整数；<strong>参数列表</strong>中，各个参数之间以<code>,</code>隔开，其个数必须与前面的格式化样式对应</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs Go"><span class="hljs-comment">// Example 1</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>    <span class="hljs-keyword">var</span> str1 = <span class="hljs-string">"abc"</span><br>    <span class="hljs-keyword">var</span> str2 = <span class="hljs-string">"zyx"</span><br>    <span class="hljs-keyword">var</span> template = <span class="hljs-string">"str1 is %s and str2 = %s"</span><br>    <span class="hljs-keyword">var</span> output = fmt.Sprintf(template, str1, str2)<br>    fmt.Println(output)<br>}<br><br><span class="hljs-comment">// str1 is abc and str2 = zyx</span><br><br><span class="hljs-comment">// Example 2</span><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>	<span class="hljs-keyword">var</span> num1 = <span class="hljs-number">123</span><br>	<span class="hljs-keyword">var</span> num2 = <span class="hljs-number">987</span><br>	<span class="hljs-keyword">var</span> template = <span class="hljs-string">"num1 is %d and num2 is %d"</span><br>	<span class="hljs-keyword">var</span> output = fmt.Sprintf(template, num1, num2)<br>	fmt.Println(output)<br>}<br><br><span class="hljs-comment">// num1 is 123 and num2 is 987</span><br></code></pre></td></tr></table></figure>
+<p><strong>常用的格式化符号</strong></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>%v</th>
+<th>按值的本来值输出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>%+v</td>
+<td>在 %v 基础上，对结构体字段名和值进行展开</td>
+</tr>
+<tr>
+<td>%#v</td>
+<td>输出 Go 语言语法格式的值</td>
+</tr>
+<tr>
+<td>%T</td>
+<td>输出 Go 语言语法格式的类型和值</td>
+</tr>
+<tr>
+<td>%%</td>
+<td>输出 % 本体</td>
+</tr>
+<tr>
+<td>%b</td>
+<td>整型以二进制方式显示</td>
+</tr>
+<tr>
+<td>%o</td>
+<td>整型以八进制方式显示</td>
+</tr>
+<tr>
+<td>%d</td>
+<td>整型以十进制方式显示</td>
+</tr>
+<tr>
+<td>%x</td>
+<td>整型以十六进制方式显示</td>
+</tr>
+<tr>
+<td>%X</td>
+<td>整型以十六进制、字母大写方式显示</td>
+</tr>
+<tr>
+<td>%U</td>
+<td>Unicode 字符</td>
+</tr>
+<tr>
+<td>%f</td>
+<td>浮点数</td>
+</tr>
+<tr>
+<td>%p</td>
+<td>指针，十六进制方式显示</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><code>func Printf(format string, a ...any) (n int, err error)</code>：格式化字符串并写入标准输出</li>
+</ul>
+<p>大体上和<code>Sprintf</code>类似，但不是赋值而是直接输出</p>
+<h2 id="Variable"><a href="#Variable" class="headerlink" title="Variable"></a>Variable</h2><p>声明变量一般使用<code>var</code>，格式为<code>var name1, name2, ... type</code>，如果定义一个变量但没有初始化，则会默认为零值，在<code>Go</code>中，变量也会自动判断类型，比如<code>var name = value</code>，会将<code>name</code>认为成和<code>value</code>一样的类型，</p>
+<p><code>:=</code>：在<code>Go</code>中可以使用该符号来快速定义一个变量，<code>name := 1</code>等价于<code>var name int; name = 1</code>，所以我们不能对一个已经声明过的变量使用<code>:=</code></p>
+<h3 id=""><a href="#" class="headerlink" title="_"></a>_</h3><p>在<code>Go</code>中，<code>_</code>是<strong>空白标识符</strong>，作用是用来抛弃某个值，其存在的意义与<code>Go</code>对变量的要求有关</p>
+<p><code>Go</code>要求所有局部变量必须被使用（全局变量不需要，赋值不算做使用），而如果一个函数的返回值有多个，但我们不想全部使用，则可以如下操作：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs Go"><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span> {<br>    <span class="hljs-comment">// 只需要第二个返回值</span><br>    _, num, _ = gen()<br>    fmt.Println(num)<br>}<br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-title">gen</span><span class="hljs-params">()</span></span> (<span class="hljs-type">int</span>, <span class="hljs-type">int</span>, <span class="hljs-type">int</span>) {<br>    a, b, c := <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span><br>    <span class="hljs-keyword">return</span> a, b, c<br>}<br><br><span class="hljs-comment">// 2</span><br></code></pre></td></tr></table></figure>
+<p>而与此同时，由于<code>Go</code>中相同类型的变量可以使用<code>a, b = b, a</code>进行快速的数值互换，所以在<code>_, b = b, a</code>中，<code>b</code>原先的值就被抛弃了</p>
+<h2 id="Constant"><a href="#Constant" class="headerlink" title="Constant"></a>Constant</h2><p>常量实在程序运行时不会被修改的量，定义如下</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs Go"><span class="hljs-keyword">const</span> name [<span class="hljs-keyword">type</span>] = value<br></code></pre></td></tr></table></figure>
+<p>这里的<code>type</code>可以省略，让其自行判断类型</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs Go"><span class="hljs-keyword">const</span> (<br>	a = <span class="hljs-string">"hah"</span><br>    b = <span class="hljs-built_in">len</span>(a)<br>    c = unsafe.Sizeof(a)<br>)<br></code></pre></td></tr></table></figure>
+<p>使用常量进行枚举时，函数必须得是内置函数，比如<code>len()</code>，<code>unsafe.Sizeof()</code>等等</p>
+<h3 id="iota"><a href="#iota" class="headerlink" title="iota"></a>iota</h3><p><code>iota</code>是<code>Go</code>中一个特殊的常量，其可以被编译器进行修改。<code>iota</code>在<code>const</code>出现时会被重置为<code>0</code>，而在之后每新增一项声明就会使<code>iota += 1</code></p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Go"><span class="hljs-keyword">const</span> (<br>	a = <span class="hljs-literal">iota</span><br>    b = <span class="hljs-literal">iota</span><br>)<br><br><span class="hljs-comment">// a = 0, b = 1</span><br></code></pre></td></tr></table></figure>
+<div id="paginator"></div></div><div id="post-footer"><div id="pages" style="justify-content: flex-end"><div class="footer-link" style="width: 50%;right:1px;border-left:1px #fe2 solid"><a href="/2023/09/10/Social_Report/">大连理工大学2023年暑期社会实践调研报告 Prev →</a></div></div></div><details id="reward"><summary>reward</summary><div><span>Alipay</span><br><img src="/img/Alipay.png"></div><div><span>Wechat</span><br><img src="/img/WeChat.png"></div></details><div id="comments"><div class="selector"><button class="valine-sel"></button></div><div id="valine"></div></div></div><div class="bottom-btn"><div><a id="to-top" onClick="scrolls.scrolltop();" title="To Top" style="opacity: 0; display: none;">∧</a><a id="to-index" href="#toc-div" title="To Catalog">≡</a><a id="color-mode" onClick="colorMode.change()" title="Change Theme"></a></div></div></article><aside><div id="about"><a href="/" id="logo"><img src="https://ak.hypergryph.com/assets/index/images/ak/pc/faction/1.png" alt="Logo"></a><h1 id="Dr"><a href="/">Zedsich</a></h1><div id="description"><p></p></div></div><div id="aside-block"><div id="toc-div"><h1>Catalog</h1><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Go-First"><span class="toc-number">1.</span> <span class="toc-text">Go First</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Env"><span class="toc-number">1.1.</span> <span class="toc-text">Env</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hello-World"><span class="toc-number">1.2.</span> <span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Run-Go"><span class="toc-number">1.3.</span> <span class="toc-text">Run Go</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Basic-Syntax"><span class="toc-number">1.4.</span> <span class="toc-text">Basic Syntax</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Line-separator"><span class="toc-number">1.4.1.</span> <span class="toc-text">Line separator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Exegesis"><span class="toc-number">1.4.2.</span> <span class="toc-text">Exegesis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Identifier"><span class="toc-number">1.4.3.</span> <span class="toc-text">Identifier</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Strings"><span class="toc-number">1.4.4.</span> <span class="toc-text">Strings</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Concatenation"><span class="toc-number">1.4.4.1.</span> <span class="toc-text">Concatenation</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Formation"><span class="toc-number">1.4.4.2.</span> <span class="toc-text">Formation</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Variable"><span class="toc-number">1.5.</span> <span class="toc-text">Variable</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">1.5.1.</span> <span class="toc-text">_</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Constant"><span class="toc-number">1.6.</span> <span class="toc-text">Constant</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#iota"><span class="toc-number">1.6.1.</span> <span class="toc-text">iota</span></a></li></ol></li></ol></li></ol></div></div><footer><nobr>Published with <a target="_blank" rel="noopener" href="http://hexo.io">Hexo</a></nobr><wbr><nobr> Theme <a target="_blank" rel="noopener" href="https://github.com/Yue-plus/hexo-theme-arknights">Arknights</a></nobr><wbr><nobr>by <a target="_blank" rel="noopener" href="https://github.com/Yue-plus">Yue_plus</a></nobr></footer></aside></main><canvas id="canvas-dust"></canvas><script src="/js/search.js"></script><script class="pjax-js">reset=_=>{new Valine({
+ el: '#valine'
+ , appId: '12mmdjDQr3Zp2ZAH5T8u420K-gzGzoHsz'
+ , appKey: 'B6NVCNzhi3ZWtXN73NUXFT3D' , placeholder: 'This comment is sent by Penguin Logistics.'
+ , path: window.location.pathname
+});code.findCode();}</script><script src="/js/arknights.js"></script><script src="/js/pjax.js"></script><script>window.addEventListener("load",() => {pjax = new Pjax({
+ cacheBust: false,
+ selectors: ['title','article','#aside-block','.pjax-js'],
+ switches: {'article': Pjax.switches.sideBySide},
+ switchesOptions: {
+   'article': {
+     classNames: {
+       remove: "pjax-out",
+       add: "pjax-in"
+     }
+   }
+ }
+});
+document.addEventListener("pjax:complete", reset);reset()})</script></body></html>
