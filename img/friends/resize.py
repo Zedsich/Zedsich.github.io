@@ -1,7 +1,7 @@
 from PIL import Image, ImageFilter
 import os
 
-def resize_images(input_folder, output_folder, target_size=(150, 150)):
+def resize_images(input_folder, output_folder, target_size=(100, 100)):
     # 确保输出文件夹存在
     if not os.path.exists(output_folder):
         os.makedirs(output_folder)
